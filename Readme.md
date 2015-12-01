@@ -14,7 +14,7 @@ This being just a for fun, \#do-it-in-C, project, I don't have any clear goals o
 2. Similarly benchmark its performance and memory efficiency.
 3. Add usage and other nice features.
 4. Fix the rushed Makefile.
-5. Add compilation of statically and dynamically linked libraries (should be straight forward).
+5. Add compilation of static and dynamic libraries (should be straight forward).
 
 # Installation
 
