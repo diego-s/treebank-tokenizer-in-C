@@ -41,6 +41,8 @@ suppressor
 gene
 .
 ```
+Or, equivalently:
+```
 [diego@localhost bin]$ echo "The p53 gene like the Rb gene, is a tumor suppressor gene." | ./tokenize
 The
 p53
