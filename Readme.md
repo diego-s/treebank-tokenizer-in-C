@@ -24,7 +24,7 @@ This being just a for fun, \#do-it-in-C, project, I don't have any clear goals o
 
 # Usage
 
-``
+```
 [diego@localhost bin]$ ./tokenize "The p53 protein is a phosphoprotein made of 393 amino acids."
 The
 p53
@@ -38,9 +38,9 @@ of
 amino
 acids
 .
-``
+```
 or equivalently:
-``
+```
 [diego@localhost bin]$ echo "The p53 protein is a phosphoprotein made of 393 amino acids." | ./tokenize 
 The
 p53
@@ -54,7 +54,7 @@ of
 amino
 acids
 .
-``
+```
 
 # What now?
 
