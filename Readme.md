@@ -25,34 +25,36 @@ This being just a for fun, \#do-it-in-C, project, I don't have any clear goals o
 # Usage
 
 ```
-[diego@localhost bin]$ ./tokenize "The p53 protein is a phosphoprotein made of 393 amino acids."
+[diego@localhost bin]$ ./tokenize "The p53 gene like the Rb gene, is a tumor suppressor gene."
 The
 p53
-protein
+gene
+like
+the
+Rb
+gene
+,
 is
 a
-phosphoprotein
-made
-of
-393
-amino
-acids
+tumor
+suppressor
+gene
 .
 ```
-or equivalently:
-```
-[diego@localhost bin]$ echo "The p53 protein is a phosphoprotein made of 393 amino acids." | ./tokenize 
+[diego@localhost bin]$ echo "The p53 gene like the Rb gene, is a tumor suppressor gene." | ./tokenize
 The
 p53
-protein
+gene
+like
+the
+Rb
+gene
+,
 is
 a
-phosphoprotein
-made
-of
-393
-amino
-acids
+tumor
+suppressor
+gene
 .
 ```
 
