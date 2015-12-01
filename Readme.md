@@ -60,6 +60,10 @@ gene
 .
 ```
 
+# Licensing
+
+This program is being released under the GNU GPL v3 license (see License.md for more information).
+
 # What now?
 
 Use it!! And fix the bugs!!! :)
