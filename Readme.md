@@ -1,8 +1,8 @@
 # Tokenize
 
-This is a C implementation of the (Treebank Tokenizer)[https://www.cis.upenn.edu/~treebank/tokenization.html] and, more precisely a direct translation of the Python implementation present in (NLTK)[http://www.nltk.org/_modules/nltk/tokenize/treebank.html]. This was developed on my spare time as an exercise to get more familiar with development in C. No thorough validation of the outputs nor performance comparisons between this and other implementations have been performed at this point.
+This is a C implementation of the [Treebank Tokenizer](https://www.cis.upenn.edu/~treebank/tokenization.html) and, more precisely a direct translation of the Python implementation present in [NLTK](http://www.nltk.org/_modules/nltk/tokenize/treebank.html). This was developed on my spare time as an exercise to get more familiar with development in C. No thorough validation of the outputs nor performance comparisons between this and other implementations have been performed at this point.
 
-# But why didn't you use the (sed script)[https://www.cis.upenn.edu/~treebank/tokenizer.sed]???
+# But why didn't you use the [sed script](https://www.cis.upenn.edu/~treebank/tokenizer.sed)???
 
 Shut up.
 
@@ -18,7 +18,7 @@ This being just a for fun, \#do-it-in-C, project, I don't have any clear goals o
 
 # Installation
 
-1. Download and compile (PCRE2)[http://www.pcre.org/current/doc/html/pcre2.html].
+1. Download and compile [PCRE2](http://www.pcre.org/current/doc/html/pcre2.html).
 2. Edit the *PCRE2_DIR* variable in *src/Makefile* to let it know where the static library is.
 3. Go to the root project directory and *make*.
 
