@@ -1,4 +1,4 @@
-# Tokenize
+# Treebank Tokenizer in C
 
 This is a C implementation of the [Treebank Tokenizer](https://www.cis.upenn.edu/~treebank/tokenization.html) and, more precisely a direct translation of the Python implementation present in [NLTK](http://www.nltk.org/_modules/nltk/tokenize/treebank.html). This was developed on my spare time as an exercise to get more familiar with development in C. No thorough validation of the outputs nor performance comparisons between this and other implementations have been performed at this point.
 
