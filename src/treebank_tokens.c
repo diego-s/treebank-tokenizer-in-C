@@ -2,7 +2,7 @@
 
 treebank_tokens_t* treebank_tokens_new() {
 	treebank_tokens_t* treebank_tokens = malloc(sizeof(treebank_tokens_t));
-	treebank_tokens->token_array = malloc(0);
+	treebank_tokens->token_array = NULL;
 	treebank_tokens->length = 0;
 	return treebank_tokens;
 }
