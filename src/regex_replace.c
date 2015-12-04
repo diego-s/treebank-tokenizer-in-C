@@ -12,22 +12,19 @@ char* regex_replace(char* pattern, char* replacement, char* string) {
 		fprintf(stderr, "Unable to compile pattern: %s\n", pattern);
 		return NULL;
 	}
-	else {
-		PCRE2_SIZE string_length = strlen(string);
-		PCRE2_SIZE replacement_length = strlen(replacement);
-		PCRE2_SIZE start_offset = 0;
-		PCRE2_UCHAR substitution;
-		size_t substitution_length = 1000;
-		int ret = pcre2_substitute(regex, (PCRE2_SPTR8) string, string_length, start_offset,
-			options, NULL, NULL, (PCRE2_SPTR8) replacement, replacement_length,
-			&substitution, &substitution_length);
-		if (ret < 0) {
-			fprintf(stderr, "Failed to perform substitution: %s %d.\n", 
-				pattern, ret);
-			return NULL;
-		} else {
-			char* result = strdup((char *)&substitution);
-			return result;
-		}
+	PCRE2_SIZE string_length = strlen(string);
+	PCRE2_SIZE replacement_length = strlen(replacement);
+	PCRE2_SIZE start_offset = 0;
+	PCRE2_UCHAR substitution;
+	size_t substitution_length = 1000;
+	int ret = pcre2_substitute(regex, string, string_length, start_offset,
+		options, NULL, NULL, replacement, replacement_length,
+		&substitution, &substitution_length);
+	if (ret < 0) {
+		fprintf(stderr, "Failed to perform substitution: %s %d.\n",
+			pattern, ret);
+		return NULL;
 	}
+	char* result = strdup(&substitution);
+	return result;
 }
