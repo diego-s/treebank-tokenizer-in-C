@@ -57,14 +57,14 @@ static char* preprocess(char* string) {
 }
 
 treebank_tokens_t* treebank_tokenize(char* sentence) {
-	char* sentence_copy = strdup(sentence);
-	sentence_copy = preprocess(sentence_copy);
+	char* procsent = preprocess(sentence);
 	char* delimiters = " ";
 	treebank_tokens_t* tokens = treebank_tokens_new();
-	char* token = strsep(&sentence_copy, delimiters);
+	int num_tokens = 0;
+	char* token = strsep(&procsent, delimiters);
 	while (token != NULL) {
 		if (strlen(token) > 0) treebank_tokens_append(tokens, token);
-		token = strsep(&sentence_copy, delimiters);
+		token = strsep(&procsent, delimiters);
 	}
 	return tokens;
 }
