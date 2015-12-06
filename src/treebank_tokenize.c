@@ -22,7 +22,7 @@ static char* preprocess(char* string, size_t inputlen) {
 	string = regex_replace("--", " -- ", string, inputlen);
 	
 	//add extra space to make things easier
-	char* string_2 = malloc(sizeof(char*) * strlen(string + 3));
+	char* string_2 = malloc(sizeof(char) * (inputlen + 3));
 	strcpy(string_2, " ");
 	strcat(string_2, string);
 	strcat(string_2, " ");
