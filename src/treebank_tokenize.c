@@ -22,10 +22,11 @@ static char* preprocess(char* string, size_t inputlen) {
 	string = regex_replace("--", " -- ", string, inputlen);
 	
 	//add extra space to make things easier
-	char* string_2 = malloc(sizeof(char) * (inputlen + 3));
-	strcpy(string_2, " ");
-	strcat(string_2, string);
-	strcat(string_2, " ");
+	char* tmpstring = malloc(sizeof(char) * (inputlen + 3));
+	strcpy(tmpstring, " ");
+	strcat(tmpstring, string);
+	strcat(string, " ");
+	inputlen += 3;
 	
 	//ending quotes
 	string = regex_replace("\"", " '' ", string, inputlen);
