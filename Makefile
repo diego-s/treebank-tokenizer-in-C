@@ -1,7 +1,8 @@
 all:
-	mkdir -p bin libs
+	mkdir -p bin
 	cd src && $(MAKE) all
 
 clean:
-	rm -rf bin libs
+	rm -f bin/tokenize
+	rmdir bin/ || true
 	cd src && $(MAKE) clean
