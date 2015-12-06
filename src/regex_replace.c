@@ -21,10 +21,17 @@ char* regex_replace(char* pattern, char* replacement, char* string) {
 		options, NULL, NULL, replacement, replacement_length,
 		&substitution, &substitution_length);
 	if (ret < 0) {
-		fprintf(stderr, "Failed to perform substitution: %s %d.\n",
-			pattern, ret);
-		return NULL;
+		fprintf(stderr, "Failed to perform substitution. Pattern: %s Ret: %d Input: %s. Returning original string.\n",
+			pattern, ret, string);
+		return string;
 	}
+	if (ret == 0) {
+		fprintf(stderr, "No substitution to perform: %s %d.\n", pattern, ret);
+		return string;
+	}
+	fprintf(stderr, "Found something. Pattern: %s Ret: %d input: %s resultstring: %s outlen: %d.\n", pattern, ret, string, substitution, substitution_length);
+
 	char* result = strdup(&substitution);
+	fprintf(stderr, "Copied result: %s.\n", result);
 	return result;
 }
