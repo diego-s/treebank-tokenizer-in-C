@@ -17,8 +17,8 @@ char* regex_replace(char* pattern, char* replacement, char* string, size_t strin
 	size_t substitution_length = 1000;
 	PCRE2_UCHAR* substitution = malloc(string_length);
 
-	int ret = pcre2_substitute(regex, string, string_length, start_offset,
-		options, NULL, NULL, replacement, replacement_length,
+	int ret = pcre2_substitute(regex,(PCRE2_SPTR8) string, string_length, start_offset,
+		options, NULL, NULL, (PCRE2_SPTR8) replacement, replacement_length,
 		substitution, &substitution_length);
 	if (ret < 0) {
 		fprintf(stderr, "Failed to perform substitution. Pattern: %s Ret: %d Input: %s. Returning original string.\n",
@@ -29,9 +29,9 @@ char* regex_replace(char* pattern, char* replacement, char* string, size_t strin
 		fprintf(stderr, "No substitution to perform: %s %d.\n", pattern, ret);
 		return string;
 	}
-	fprintf(stderr, "Found something. Pattern: %s Ret: %d input: %s resultstring: %s outlen: %d.\n", pattern, ret, string, substitution, substitution_length);
+	fprintf(stderr, "Found something. Pattern: %s Ret: %d input: %s resultstring: %s outlen: %lu.\n", pattern, ret, string, substitution, substitution_length);
 
-	char* result = strdup(substitution);
+	char* result = strdup((const char *) substitution);
 	fprintf(stderr, "Copied result: %s.\n", result);
 	return result;
 }

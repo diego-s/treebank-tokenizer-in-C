@@ -5,7 +5,7 @@ static char* preprocess(char* string, size_t inputlen) {
 	//starting quotes
 	string = regex_replace("^\"", "``", string, inputlen);
 	string = regex_replace("(``)", " $1 ", string, inputlen);
-	string = regex_replace("([ (\[{<])\"", "$1 `` ", string, inputlen);
+	string = regex_replace("([ (\\[{<])\"", "$1 `` ", string, inputlen);
 
 	//punctuation
 	string = regex_replace("([:,])([^\\d])", " $1 $2", string, inputlen);
@@ -63,7 +63,6 @@ treebank_tokens_t* treebank_tokenize(char* sentence) {
 	char* procsent = preprocess(sentence, inputlen);
 	char* delimiters = " ";
 	treebank_tokens_t* tokens = treebank_tokens_new();
-	int num_tokens = 0;
 	char* token = strsep(&procsent, delimiters);
 	while (token != NULL) {
 		if (strlen(token) > 0) treebank_tokens_append(tokens, token);
