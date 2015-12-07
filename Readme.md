@@ -18,7 +18,7 @@ This being just a for fun, \#do-it-in-C, project, I don't have any clear goals o
 
 # Installation
 
-1. Download and compile [PCRE2](http://www.pcre.org/current/doc/html/pcre2.html).
+1. Download and compile [PCRE2](ftp://ftp.csx.cam.ac.uk/pub/software/programming/pcre/).
 2. Edit the *PCRE2_DIR* variable in *src/Makefile* to let it know where the static library is.
 3. Go to the root project directory and *make*.
 
