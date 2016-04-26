@@ -1,5 +1,5 @@
 CC=cc
-PCRE2_DIR=/home/diego/Downloads/ner/pcre2-10.10
+PCRE2_DIR=/home/diego/Projects/pcre2-10.21
 CFLAGS=-I. -I$(PCRE2_DIR)/src -std=gnu99
 BIN_DIR=../bin/
 EXECUTABLE=$(BIN_DIR)/tokenize
