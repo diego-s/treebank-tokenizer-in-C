@@ -25,9 +25,6 @@ char* regex_replace(char* pattern, char* replacement, char* string, size_t strin
 			pattern, ret);
 		return NULL;
 	}
-	//char* result = strdup(&substitution);
-	//fprintf(stderr, "Found something. Pattern: %s Ret: %d input: %s resultstring: %s outlen: %d.\n", pattern, ret, string, substitution, substitution_length);
 	char* result = strdup((const char *) substitution);
-	fprintf(stderr, "Copied result: %s.\n", result);
 	return result;
 }
