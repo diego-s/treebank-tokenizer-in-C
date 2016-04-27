@@ -5,10 +5,12 @@ static char* preprocess(char* string, size_t input_length) {
 	//starting quotes
 	string = regex_replace("^\"", "``", string, input_length);
 	string = regex_replace("(``)", " $1 ", string, input_length);
-	string = regex_replace("([ (\\[{<])\"", "$1 `` ", string, input_length);
+	string = regex_replace("([ (\\[{<])\"", "$1 `` ", string, 
+		input_length);
 
 	//punctuation
-	string = regex_replace("([:,])([^\\d])", " $1 $2", string, input_length);
+	string = regex_replace("([:,])([^\\d])", " $1 $2", string, 
+		input_length);
 	string = regex_replace("([:,])$", " $1 ", string, input_length);
 	string = regex_replace("\\.\\.\\.", " ... ", string, input_length); 
 	string = regex_replace("[;@#$%&]", " $1 ", string, input_length);
@@ -42,7 +44,8 @@ static char* preprocess(char* string, size_t input_length) {
 	//contractions 2
 	string = regex_replace("(?i)\b(can)(not)\b", " $1 $2 ", string, 
 		input_length);
-	string = regex_replace("(?i)\b(d)('ye)\b", " $1 $2 ", string, input_length);
+	string = regex_replace("(?i)\b(d)('ye)\b", " $1 $2 ", string, 
+		input_length);
 	string = regex_replace("(?i)\b(gim)(me)\b", " $1 $2 ", string, 
 		input_length);
 	string = regex_replace("(?i)\b(gon)(na)\b", " $1 $2 ", string, 
@@ -53,11 +56,14 @@ static char* preprocess(char* string, size_t input_length) {
 		input_length);
 	string = regex_replace("(?i)\b(mor)('n)\b", " $1 $2 ", string, 
 		input_length);
-	string = regex_replace("(?i)\b(wan)(na) ", " $1 $2 ", string, input_length);
+	string = regex_replace("(?i)\b(wan)(na) ", " $1 $2 ", string, 
+		input_length);
 	
 	//contractions 3
-	string = regex_replace("(?i) ('t)(is)\b", " $1 $2 ", string, input_length);
-	string = regex_replace("(?i) ('t)(was)\b", " $1 $2 ", string, input_length);
+	string = regex_replace("(?i) ('t)(is)\b", " $1 $2 ", string, 
+		input_length);
+	string = regex_replace("(?i) ('t)(was)\b", " $1 $2 ", string, 
+		input_length);
 
 	//non-treebank modification: newlines
 	string = regex_replace("[\r\n]", " ", string, input_length);
@@ -75,5 +81,6 @@ treebank_tokens_t* treebank_tokenize(char* sentence) {
 		if (strlen(token) > 0) treebank_tokens_append(tokens, token);
 		token = strsep(&processed_sentence, delimiters);
 	}
+	if (strlen(token) > 0) treebank_tokens_append(tokens, token);
 	return tokens;
 }
