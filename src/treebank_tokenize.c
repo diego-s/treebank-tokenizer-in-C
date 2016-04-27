@@ -10,8 +10,7 @@ static char* preprocess(char* string, size_t inputlen) {
 	//punctuation
 	string = regex_replace("([:,])([^\\d])", " $1 $2", string, inputlen);
 	string = regex_replace("([:,])$", " $1 ", string, inputlen);
-	string = regex_replace("\\.\\.\\.", " ... ", string, inputlen);
-	string = regex_replace("[;@#$%&]", " $1 ", string, inputlen);
+	string = regex_replace("\\.\\.\\.", " ... ", string, inputlen); string = regex_replace("[;@#$%&]", " $1 ", string, inputlen);
 	string = regex_replace("([^\\.])(\\.)([\\]\\)}>\"']*)\\s*$", "$1 $2$3 ", 
 		string, inputlen);
 	string = regex_replace("([?!])", " $1 ", string, inputlen);
@@ -58,7 +57,7 @@ static char* preprocess(char* string, size_t inputlen) {
 
 treebank_tokens_t* treebank_tokenize(char* sentence) {
 	size_t inputlen = strlen(sentence);
-	char* processed_sentence = preprocess(sentence);
+	char* processed_sentence = preprocess(sentence, inputlen);
 	char* delimiters = " ";
 	treebank_tokens_t* tokens = treebank_tokens_new();
 	int num_tokens = 0;
