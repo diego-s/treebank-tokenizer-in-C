@@ -70,7 +70,7 @@ treebank_tokens_t* treebank_tokenize(char* sentence) {
 	char* processed_sentence = preprocess(sentence, input_length);
 	char* delimiters = " ";
 	treebank_tokens_t* tokens = treebank_tokens_new();
-	char* token = strsep(&procsent, delimiters);
+	char* token = strsep(&processed_sentence, delimiters);
 	while (token != NULL) {
 		if (strlen(token) > 0) treebank_tokens_append(tokens, token);
 		token = strsep(&processed_sentence, delimiters);
