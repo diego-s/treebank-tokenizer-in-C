@@ -14,10 +14,16 @@ char* regex_replace(char* pattern, char* replacement, char* string) {
 	}
 	PCRE2_SIZE replacement_length = strlen(replacement);
 	PCRE2_SIZE start_offset = 0;
-	size_t substitution_length = 1000;
-	PCRE2_UCHAR* substitution = malloc(sizeof(PCRE2_UCHAR) * 
+	PCRE2_UCHAR* substitution;
+	size_t substitution_length;
+	int string_length = strlen(string);
+	options = PCRE2_SUBSTITUTE_OVERFLOW_LENGTH;
+	pcre2_substitute(regex,(PCRE2_SPTR8) string, string_length,  start_offset, 
+		options, NULL, NULL, (PCRE2_SPTR8) replacement, replacement_length, 
+		substitution, &substitution_length);
+    substitution_length++;
+	substitution = malloc(sizeof(PCRE2_UCHAR) * 
 		substitution_length);
-        int string_length = strlen(string);
 	int ret = pcre2_substitute(regex,(PCRE2_SPTR8) string, string_length, 
 		start_offset, options, NULL, NULL, (PCRE2_SPTR8) replacement, 
 		replacement_length, substitution, &substitution_length);

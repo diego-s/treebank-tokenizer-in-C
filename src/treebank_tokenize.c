@@ -11,7 +11,7 @@ static char* preprocess(char* string) {
 	string = regex_replace("([:,])([^\\d])", " $1 $2", string);
 	string = regex_replace("([:,])$", " $1 ", string);
 	string = regex_replace("\\.\\.\\.", " ... ", string); 
-	string = regex_replace("[;@#$%&]", " $1 ", string);
+	string = regex_replace("([;@#$%&])", " $1 ", string);
 	string = regex_replace("([^\\.])(\\.)([\\]\\)}>\"']*)\\s*$", 
 		"$1 $2$3 ", string);
 	string = regex_replace("([?!])", " $1 ", string);
