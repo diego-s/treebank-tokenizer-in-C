@@ -1,10 +1,10 @@
 set -e
 
 # sentence detection
-
 python sentence_detect.py > corpus_sentences.txt
 
 # gold standard results generation
+mkdir -p results
 sed -f sed_tokenize.sed corpus_sentences.txt > results/sed.txt
 python nltk_tokenize.py > results/nltk.txt
 
