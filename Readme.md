@@ -26,38 +26,12 @@ This being just a for fun, \#do-it-in-C, project, I don't have any clear goals o
 
 ```
 [diego@localhost bin]$ ./tokenize "The p53 gene like the Rb gene, is a tumor suppressor gene."
-The
-p53
-gene
-like
-the
-Rb
-gene
-,
-is
-a
-tumor
-suppressor
-gene
-.
+The p53 gene like the Rb gene , is a tumor suppressor gene .
 ```
 Or, equivalently:
 ```
 [diego@localhost bin]$ echo "The p53 gene like the Rb gene, is a tumor suppressor gene." | ./tokenize
-The
-p53
-gene
-like
-the
-Rb
-gene
-,
-is
-a
-tumor
-suppressor
-gene
-.
+The p53 gene like the Rb gene , is a tumor suppressor gene .
 ```
 
 # Licensing

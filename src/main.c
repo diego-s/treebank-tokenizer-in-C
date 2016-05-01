@@ -6,8 +6,9 @@ int main(int argc, char** argv) {
 	else { content = read_stdin(); }
 	treebank_tokens_t* tokens = treebank_tokenize(content);
 	int num_tokens = tokens->length;
-	for (int i = 0; i < num_tokens; i++) printf("%s\n", 
+	for (int i = 0; i < num_tokens; i++) printf("%s ", 
 		tokens->token_array[i]);
 	treebank_tokens_free(tokens);
+	printf("\n");
 	return 0;
 }
